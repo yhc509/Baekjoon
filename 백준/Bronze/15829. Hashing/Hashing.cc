@@ -10,14 +10,16 @@ int main() {
     int L;
     cin >> L;
 
-    char input[L];
-    cin >> input;
-    int H = 0;
-    int p = 1;
-    for(int i = 0; i < L; i++) {
-        H += ((input[i]-'a' + 1) * p) % 1234567891;
+    char input;
+    unsigned long long H = 0;
+    unsigned long long p = 1;
+    for(int i = 0 ; i < L; i++) {
+        cin >> input;
+        H += ((input-96) * p) % 1234567891;
         p *= 31;
+        p = p % 1234567891;
     }
+    H = H % 1234567891;
 
     cout << H;
 
