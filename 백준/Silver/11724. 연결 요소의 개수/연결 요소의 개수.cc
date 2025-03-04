@@ -9,17 +9,15 @@ int* c;
 
 bool search(int t) {
     // cout << "search : " << t << "\n";
-    bool exist = false;
+    if(c[t] == 1) return true;
+    c[t] = 1;
     for(int i = 1; i <= N; i++) {
         if(g[t][i] == 1) {
             // cout << "(" << t << "," << i << ")\n";
-            c[t] = 1;
-            if(c[i] == 0) search(i);
-            c[i] = 1;
-            exist = true;
+            search(i);
         }
     }
-    return exist;
+    return false;
 }
 
 int main()
